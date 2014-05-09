@@ -1,5 +1,28 @@
 extends ../shared/template
 
 block content
-  h1 Node.js Template
-  a.button.button-3d-highlight.button-circle(href='/help') Help
+  h1 nodeTunes
+
+
+  .artists
+    form(method='POST', action='/artists', enctype='multipart/form-data')
+      input(type='text', name='name', placeholder='Artist Name', autofocus=true)
+      input(type='file', name='photo', multiple=true)
+      button.button-flat-primary Add Aritst
+
+  .albums
+    form(method='POST', action='/albums', enctype='multipart/form-data')
+      input(type='text', name='albumName', placeholder='Album Name', autofocus=true)
+      input(type='file', name='albumPhoto', multiple=true)
+      button.button-flat-primary Add Album
+
+  .songs
+    form(method='POST', action='/albums', enctype='multipart/form-data')
+      input(type='text', name='songName', placeholder='Song Name', autofocus=true)
+      input(type='file', name='audioFile', multiple=true)
+      select
+        option Select Artist
+      select
+        option Select Album
+      input(type='text', name='genres', placeholder='Genres', autofocus=true)
+      button.button-flat-primary Add Song

@@ -5,14 +5,16 @@ html
     title= title
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
+    link(href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css")
     link(href='/less/app.css', rel='stylesheet')
   body
 
     nav
-      a(href='/') Home
-      a(href='/artists') Artists
-      a(href='/albums') Albums
-      a(href='/songs') Songs
+      .container
+        a.button-border(href='/') Home
+        a.button-border(href='/artists') Artists
+        a.button-border(href='/albums') Albums
+        a.button-border(href='/songs') Songs
 
 
 

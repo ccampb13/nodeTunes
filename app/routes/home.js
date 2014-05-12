@@ -1,7 +1,14 @@
 'use strict';
 
+var albums = global.nss.db.collection('albums');
+var artists = global.nss.db.collection('artists');
+
 exports.index = (req, res)=>{
-  res.render('home/index', {title: 'nodeTunes: Home'});
+      artists.find().toArray((err,artists)=>{
+      albums.find().toArray((err, albums)=>{
+      res.render('home/index', {artists: artists, albums: albums, title: 'nodeTunes: Home'});
+    });
+  });
 };
 
 exports.help = (req, res)=>{

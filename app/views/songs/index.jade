@@ -1,0 +1,13 @@
+extends ../shared/template
+
+block content
+  h1 nodeTunes - songs
+
+  .songs-container
+    each song in songs
+      .song
+        .song-name= song.name
+        .album-image= song.albumId
+        .song-genre= song.genres
+        .song-artist= song.artistId
+        audio(src='#{song.file}', type='audio/mp3', controls=true)

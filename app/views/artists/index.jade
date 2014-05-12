@@ -1,4 +1,11 @@
 extends ../shared/template
 
 block content
-  h1 nodeTunes - artist page
+  h1 nodeTunes - artist
+
+
+  .artists-container
+    each artist in artists
+      .artist
+        p= artist.name
+        img(src='/img/#{artist.name}/#{artist.photo}')

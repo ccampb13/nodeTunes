@@ -6,7 +6,9 @@ var artists = global.nss.db.collection('artists');
 // var Mongo = require('mongodb');
 
 exports.index = (req, res)=>{
-  res.render('artists/index', {title: 'nodeTunes: Artists'});
+  artists.find().toArray((err, artists)=>{
+    res.render('artists/index', {artists: artists, title: 'nodeTunes: Artists'});
+  });
 };
 
 exports.create = (req, res)=>{
@@ -18,13 +20,13 @@ exports.create = (req, res)=>{
         var artist = {};
         artist.name = fields.name[0];
 
-        files.photo.forEach(p=>{
+         files.photo.forEach(p=>{
             fs.mkdirSync(`${__dirname}/../static/img/${fields.name[0]}`);
             fs.renameSync(p.path, `${__dirname}/../static/img/${fields.name[0]}/${p.originalFilename}`);
             artist.photo = (p.originalFilename);
         });
 
-          artists.save(artist, ()=>res.redirect('/'));
+          artists.save(artist, ()=>res.redirect('/artists'));
         }else{
             res.redirect('/');
           }

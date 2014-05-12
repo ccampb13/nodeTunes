@@ -1,4 +1,12 @@
 extends ../shared/template
 
 block content
-  h1 nodeTunes - albums page
+  h1 nodeTunes - albums
+
+
+
+  .albums-container
+    each album in albums
+      .album
+        p= album.albumName
+        img(src='/img/#{name}/#{album.albumName}/#{album.albumPhoto}')

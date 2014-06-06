@@ -9,4 +9,4 @@ block content
     each album in albums
       .album
         p= album.albumName
-        img(src='/img/#{name}/#{album.albumName}/#{album.albumPhoto}')
+        img(src='/img/#{"album.artist.name"}/#{album.albumName}/#{album.albumPhoto}')
